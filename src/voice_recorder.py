@@ -12,6 +12,12 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 #
+"""
+Run from command line with:
+$ cd vosk-dictation
+$ python src/voice_recorder.py --record-seconds 30
+$ python src/voice_recorder.py -s 30
+"""
 import argparse
 import json
 import logging
