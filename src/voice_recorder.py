@@ -73,10 +73,10 @@ if __name__ == "__main__":
     print("Recording for", record_seconds, "seconds...")
     print("Press Ctrl+C at any time to exit safely")
     frames = []
+    text_parts = []
 
     try:
         # Record audio
-        text_parts = []
         for i in range(0, int(FRAME_RATE / 4096 * record_seconds)):
             data = stream.read(4096)
             frames.append(data)
