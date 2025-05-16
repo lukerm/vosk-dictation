@@ -19,7 +19,9 @@ CHANNELS = 1
 ROOT_DIR = os.path.expanduser("~/.vosk")
 MODEL_PATH = Path(ROOT_DIR) / "vosk-model-small-en-us-0.15"
 TRANS_PATH = Path(ROOT_DIR) / "transcriptions"
+RECORD_PATH = Path(ROOT_DIR) / "recordings"
 os.makedirs(TRANS_PATH, exist_ok=True)
+os.makedirs(RECORD_PATH, exist_ok=True)
 
 
 if __name__ == "__main__":
@@ -89,9 +91,10 @@ if __name__ == "__main__":
     print(f"Full transcription saved to {transcribed_fname}")
 
     # Optionally save audio file
-    #with wave.open("recording.wav", "wb") as wf:
-    #    wf.setnchannels(CHANNELS)
-    #    wf.setsampwidth(p.get_sample_size(pyaudio.paInt16))
-    #    wf.setframerate(FRAME_RATE)
-    #    wf.writeframes(b''.join(frames))
-    #print("Audio saved to recording.wav")
+    recorded_fname = Path(RECORD_PATH) / f"recording_{now_str}.wav"
+    with wave.open(str(recorded_fname), "wb") as wf:
+        wf.setnchannels(CHANNELS)
+        wf.setsampwidth(p.get_sample_size(pyaudio.paInt16))
+        wf.setframerate(FRAME_RATE)
+        wf.writeframes(b''.join(frames))
+    print(f"Audio saved to {recorded_fname}")
