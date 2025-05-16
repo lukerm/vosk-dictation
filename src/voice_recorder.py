@@ -22,7 +22,11 @@ from pathlib import Path
 import wave
 import pyaudio
 import pyperclip
-from vosk import Model, KaldiRecognizer
+from vosk import Model, KaldiRecognizer, SetLogLevel
+
+# this is a log suppressant import
+import suppress_alsa_logs
+SetLogLevel(-1)  # and silence the vosk logs
 
 # Configure audio recording
 FRAME_RATE = 16000
