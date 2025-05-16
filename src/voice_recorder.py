@@ -1,5 +1,5 @@
 # sudo apt install portaudio19-dev
-# pip install vosk pyaudio
+# pip install vosk pyaudio pyperclip
 
 import argparse
 import json
@@ -9,6 +9,7 @@ from pathlib import Path
 
 import wave
 import pyaudio
+import pyperclip
 from vosk import Model, KaldiRecognizer
 
 # Configure audio recording
@@ -87,8 +88,10 @@ if __name__ == "__main__":
     transcribed_fname = Path(TRANS_PATH) / f"transcription_{now_str}.txt"
     with open(transcribed_fname, "w") as text_file:
         text_file.write(transcribed_text)
-
     print(f"Full transcription saved to {transcribed_fname}")
+
+    pyperclip.copy(transcribed_text)
+    print(f"Full transcription also ready to be copied from the clipboard")
 
     # Optionally save audio file
     recorded_fname = Path(RECORD_PATH) / f"recording_{now_str}.wav"
