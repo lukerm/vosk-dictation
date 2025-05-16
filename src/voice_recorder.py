@@ -101,9 +101,7 @@ if __name__ == "__main__":
         print(final_part)
         text_parts.append(final_part)
 
-
     transcribed_text = '\n'.join(text_parts) + '\n'
-
     print('\n')
     print("Recording finished")
 
