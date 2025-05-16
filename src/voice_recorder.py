@@ -22,6 +22,7 @@ import argparse
 import json
 import logging
 import os
+import sys
 from datetime import datetime
 from pathlib import Path
 
@@ -105,6 +106,10 @@ if __name__ == "__main__":
 
     print('\n')
     print("Recording finished")
+
+    if not transcribed_text.strip():
+        print("No dictation detected. Exiting.")
+        sys.exit(0)
 
     print('\n')
     print(transcribed_text)
