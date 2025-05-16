@@ -1,6 +1,3 @@
-# sudo apt install portaudio19-dev
-# pip install vosk pyaudio pyperclip
-
 import argparse
 import json
 import os

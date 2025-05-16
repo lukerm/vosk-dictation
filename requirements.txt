@@ -1,0 +1,4 @@
+# sudo apt install portaudio19-dev
+pyaudio~=0.2.14
+pyperclip~=1.9.0
+vosk~=0.3.45
