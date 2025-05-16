@@ -8,6 +8,11 @@ mkvirtualenv vosk
 # sudo apt install portaudio19-dev  # possibly needed
 pip install -r requirements.txt
 
+# Download STT model (~70MB)
+mkdir ~/.vosk/
+wget https://alphacephei.com/vosk/models/vosk-model-small-en-us-0.15.zip
+unzip vosk-model-small-en-us-0.15.zip -d ~/.vosk
+
 # Microphone at the ready
 python src/voice_recorder.py -s 30
 ```
