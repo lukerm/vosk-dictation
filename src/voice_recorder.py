@@ -50,7 +50,7 @@ os.makedirs(RECORD_PATH, exist_ok=True)
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('--record-seconds', '-s', type=int, default=10, help="number of seconds to record and transcribe")
+    parser.add_argument('--record-seconds', '-s', type=int, default=60, help="number of seconds to record and transcribe")
     parser.add_argument('--model-path', '-m', type=str, default=MODEL_PATH, help="abs filepath where the transcription model is stored")
     args = parser.parse_args()
 
