@@ -59,24 +59,29 @@ if __name__ == "__main__":
 
     record_seconds = args.record_seconds
     print("Recording for", record_seconds, "seconds...")
+    print("Press Ctrl+C at any time to exit safely")
     frames = []
 
-    # Record audio
-    text_parts = []
-    for i in range(0, int(FRAME_RATE / 4096 * record_seconds)):
-        data = stream.read(4096)
-        frames.append(data)
-        if rec.AcceptWaveform(data):
-            text_part = json.loads(rec.Result())['text']
-            print(text_part)
-            text_parts.append(text_part)
-            #print("Partial result:", result["text"])
-
-
-    # Stop recording
-    stream.stop_stream()
-    stream.close()
-    p.terminate()
+    try:
+        # Record audio
+        text_parts = []
+        for i in range(0, int(FRAME_RATE / 4096 * record_seconds)):
+            data = stream.read(4096)
+            frames.append(data)
+            if rec.AcceptWaveform(data):
+                text_part = json.loads(rec.Result())['text']
+                print(text_part)
+                text_parts.append(text_part)
+                #print("Partial result:", result["text"])
+    except KeyboardInterrupt as ctrl_c:
+        pass
+    except Exception as e:
+        logging.error("Unexpected error!", exc_info=True)
+    finally:
+        # Stop recording
+        stream.stop_stream()
+        stream.close()
+        p.terminate()
 
     # Process final result
     final_part = json.loads(rec.FinalResult())['text']
