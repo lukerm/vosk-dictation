@@ -4,7 +4,7 @@
 import argparse
 import json
 import os
-from genericpath import exists
+from datetime import datetime
 from pathlib import Path
 
 import wave
@@ -83,7 +83,6 @@ if __name__ == "__main__":
     print(transcribed_text)
 
     # Save text to file
-    from datetime import datetime
     now_str = datetime.strftime(datetime.now(), '%Y%m%dT%H%M%S')
     transcribed_fname = Path(TRANS_PATH) / f"transcription_{now_str}.txt"
     with open(transcribed_fname, "w") as text_file:
