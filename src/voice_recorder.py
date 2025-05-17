@@ -42,10 +42,10 @@ CHANNELS = 1
 # Path to the model you downloaded
 ROOT_DIR = os.path.expanduser("~/.vosk")
 MODEL_PATH = Path(ROOT_DIR) / "vosk-model-small-en-us-0.15"
-TRANS_PATH = Path(ROOT_DIR) / "transcriptions"
-TRANS_PATH_TMP = "/tmp/vosk_transcription_latest.txt"
+TRANSCRIPTION_PATH = Path(ROOT_DIR) / "transcriptions"
+TRANSCRIPTION_PATH_TMP = "/tmp/vosk_transcription_latest.txt"
 RECORD_PATH = Path(ROOT_DIR) / "recordings"
-os.makedirs(TRANS_PATH, exist_ok=True)
+os.makedirs(TRANSCRIPTION_PATH, exist_ok=True)
 os.makedirs(RECORD_PATH, exist_ok=True)
 
 
@@ -115,12 +115,12 @@ if __name__ == "__main__":
 
     # Save text to file
     now_str = datetime.strftime(datetime.now(), '%Y%m%dT%H%M%S')
-    transcribed_fname = Path(TRANS_PATH) / f"transcription_{now_str}.txt"
+    transcribed_fname = Path(TRANSCRIPTION_PATH) / f"transcription_{now_str}.txt"
     with open(transcribed_fname, "w") as text_file:
         text_file.write(transcribed_text)
-    with open(TRANS_PATH_TMP, "w") as text_file:
+    with open(TRANSCRIPTION_PATH_TMP, "w") as text_file:
         text_file.write(transcribed_text)
-    print(f"""Full transcription saved to {transcribed_fname} \n\t\t\tand {TRANS_PATH_TMP}""")
+    print(f"""Full transcription saved to {transcribed_fname} \n\t\t\tand {TRANSCRIPTION_PATH_TMP}""")
 
     pyperclip.copy(transcribed_text)
     print(f"Full transcription also ready to be copied from the clipboard")
