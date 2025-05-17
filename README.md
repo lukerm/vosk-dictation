@@ -1,4 +1,4 @@
-Installation and usage:
+## Installation and usage:
 
 ```bash
 git clone git@github.com:lukerm/vosk-dictation
@@ -17,7 +17,7 @@ unzip vosk-model-small-en-us-0.15.zip -d ~/.vosk
 python src/voice_recorder.py -s 30
 ```
 
-Example output:
+## Example output:
 
 ```text
 (vosk) lukerm:~/vosk-dictation$ python src/voice_recorder.py
