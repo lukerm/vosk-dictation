@@ -35,3 +35,26 @@ Full transcription saved to /home/luke/.vosk/transcriptions/transcription_202505
 Full transcription also ready to be copied from the clipboard
 Audio saved to /home/luke/.vosk/recordings/recording_20250516T224655.wav
 ```
+
+## Usage with other tools
+
+### Ollama 🦙
+
+The Ollama project [page](https://github.com/ollama/ollama).
+
+```bash
+export OLLAMA_MODEL=llama3.2:1b
+export PROMPT_RULES="Make this text grammatically correct and well-structured. Do not include preamble in your output, just the corrected version of what follows."
+python $HOME/vosk-dictation/src/voice_recorder.py && \
+  echo && \
+  ollama run $OLLAMA_MODEL "`echo $PROMPT_RULES` \n ----- \n `cat /tmp/vosk_transcription_latest.txt`"
+```
+
+### Useful aliases
+
+```bash
+alias vosk2ollama='echo "Prompt rules are: $PROMPT_RULES" && \
+  python $HOME/vosk-dictation/src/voice_recorder.py && \
+  echo && echo "Sanitised version (by $OLLAMA_MODEL):" && echo && \
+  ollama run llama3.2:1b "`echo $PROMPT_RULES` \n ----- \n `cat /tmp/vosk_transcription_latest.txt`"'
+```
