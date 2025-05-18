@@ -80,3 +80,12 @@ alias vosk2ollama='echo "Prompt rules are: $PROMPT_RULES" && \
   echo && echo "Sanitised version (by $OLLAMA_MODEL):" && echo && \
   ollama run llama3.2:1b "`echo $PROMPT_RULES` \n ----- \n `cat /tmp/vosk_transcription_latest.txt`"'
 ```
+
+```bash
+alias vosk2parallellm='cd && workon vosk && \
+  python ./vosk-dictation/src/voice_recorder.py && \
+  echo && workon parallellm-pump && \
+  python -m parallellm-pump.src.pump --providers chatgpt claude gemini \
+    --prompt "`cat /tmp/vosk_transcription_latest.txt`" && \
+  deactivate'
+```
