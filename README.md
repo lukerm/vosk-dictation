@@ -54,6 +54,24 @@ python $HOME/vosk-dictation/src/voice_recorder.py && \
 Note: if you're brave and don't set `PROMPT_RULES`, then `ollama` will just go ahead and execute the prompt as transcribed. 
 This _may_ work, as LLMs can often infer meaning, but sometimes transcriptions can include word subs that completely change the meaning!
 
+### Parallellm
+
+The Parallellm Pump project [page](https://github.com/lukerm/parallellm-pump).
+
+You can run it together with Parallellm by first setting up your `parallellm-pump` virtual environment and API keys, and then running 
+this example command (also see aliases):
+
+```bash
+cd
+workon vosk && \
+  python ./vosk-dictation/src/voice_recorder.py && \
+  echo && \
+  workon parallellm-pump && \
+  python -m parallellm-pump.src.pump --providers chatgpt claude gemini \
+    --prompt "`cat /tmp/vosk_transcription_latest.txt`" && \
+  deactivate
+```
+
 ### Useful aliases
 
 ```bash
