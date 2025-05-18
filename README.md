@@ -43,6 +43,7 @@ Audio saved to /home/luke/.vosk/recordings/recording_20250516T224655.wav
 The Ollama project [page](https://github.com/ollama/ollama).
 
 ```bash
+workon vosk
 export OLLAMA_MODEL=llama3.2:1b
 export PROMPT_RULES="Make this text grammatically correct and well-structured. Do not include preamble in your output, just the corrected version of what follows."
 python $HOME/vosk-dictation/src/voice_recorder.py && \
