@@ -23,13 +23,13 @@ python src/voice_recorder.py -s 30
 (vosk) lukerm:~/vosk-dictation$ python src/voice_recorder.py
 Recording for 60 seconds...
 Press Ctrl+C at any time to exit safely
-a program to record your vocal mutterings so you don't have to type them
+a program to record your vocal utterances so you don't have to type them
 ^C
 
 Recording finished
 
 
-a program to record your vocal mutterings so you don't have to type them
+a program to record your vocal utterances so you don't have to type them
 
 Full transcription saved to /home/luke/.vosk/transcriptions/transcription_20250516T224655.txt
 Full transcription also ready to be copied from the clipboard
