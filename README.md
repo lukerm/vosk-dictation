@@ -72,6 +72,8 @@ workon vosk && \
   deactivate
 ```
 
+This will run the recorded prompt directly: the parallellm pump will offer possible responses from each of the supplied `--providers`.
+
 ### Useful aliases
 
 ```bash
