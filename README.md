@@ -50,6 +50,9 @@ python $HOME/vosk-dictation/src/voice_recorder.py && \
   ollama run $OLLAMA_MODEL "`echo $PROMPT_RULES` \n ----- \n `cat /tmp/vosk_transcription_latest.txt`"
 ```
 
+Note: if you're brave and don't set `PROMPT_RULES`, then `ollama` will just go ahead and execute the prompt as transcribed. 
+This _may_ work, as LLMs can often infer meaning, but sometimes transcriptions can include word subs that completely change the meaning!
+
 ### Useful aliases
 
 ```bash
