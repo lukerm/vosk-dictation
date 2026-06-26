@@ -6,6 +6,7 @@ cd vosk-dictation
 mkvirtualenv vosk
 
 # sudo apt install portaudio19-dev  # possibly needed
+# sudo apt install xclip            # possibly needed
 pip install -r requirements.txt
 
 # Download STT model (~70MB)
