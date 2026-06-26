@@ -3,11 +3,11 @@
 ```bash
 git clone git@github.com:lukerm/vosk-dictation
 cd vosk-dictation
-mkvirtualenv vosk
+[ -d .venv ] || uv venv && source .venv/bin/activate
 
 # sudo apt install portaudio19-dev  # possibly needed
 # sudo apt install xclip            # possibly needed
-pip install -r requirements.txt
+uv pip install -r requirements.txt
 
 # Download STT model (~70MB)
 mkdir ~/.vosk/
